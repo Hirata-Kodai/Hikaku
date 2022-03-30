@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hikaku（らーめん）</title>
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+  <body>
+    <div class="app-title" >
+      <h1>Hikaku（らーめん）</h1>
+    </div>
+    <div class="submit-area" >
+      <div class="submit-area-img" >
+        <img src="images/ra-men_sample.jpg" alt="ラーメンの画像" title="ラーメン" class="submitted_img" />
+      </div>
+      <div class="submit-area-compared_things" >
+        <ul>
+          <li class="compared_thing">
+            <input type="range" id="noodle" name="noodle"
+         min="0" max="100">
+            <label for="noodle">麺のうまさ</label>
+          </li>
+          <li class="compared_thing">
+             <input type="range" id="soup-koku" name="soup-koku"
+         min="0" max="100">
+             <label for="soup-koku">スープのうまさ</label>
+          </li>
+          <li class="compared_thing">
+            <input type="number" id="price" name="price" min="0" max="10000">
+            <label for="price">価格</label>
+          </li>
+        </ul>
+        <input class="submit-button" type="button" name="submit" value="登録" />
+      </div>
+    </div>
+    <div class="display-area" >
+      <p>登録した商品</p>
+      <ul class="element-list" >
+        <li>
+          <div class="submit-area" >
+            <div class="submit-area-img" >
+              <img src="images/ra-men_sample.jpg" alt="ラーメンの画像" title="ラーメン" class="submitted_img" />
+            </div>
+            <div class="submit-area-compared_things" >
+              <ul>
+                <li class="compared_thing">
+                  <input type="range" id="noodle" name="noodle"
+                         min="0" max="100">
+                  <label for="noodle">麺のうまさ</li></label>
+                </li>
+                <li class="compared_thing">
+                  <input type="range" id="soup-koku" name="soup-koku"
+                         min="0" max="100">
+                  <label for="soup-koku">スープのうまさ</label>
+                </li>
+                <li class="compared_thing">
+                  <input type="number" id="price" name="price" min="0" max="10000">
+                  <label for="price">価格</label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

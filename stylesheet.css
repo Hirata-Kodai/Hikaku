@@ -2,6 +2,10 @@ li {
   list-style: none;
 }
 
+.element-list {
+	padding: 0;
+}
+
 .app-title {
 	text-align: center;
 }
@@ -26,7 +30,16 @@ li {
 	float: left;
 }
 
+.detail-things {
+	margin-block-start: 1em;
+    margin-block-end: 1em;
+}
 .submit-button {
+	text-align: center;
+	width: 100px;
+}
+
+.delete-button {
 	text-align: center;
 	width: 100px;
 }

@@ -11,10 +11,13 @@
     </div>
     <div class="submit-area">
       <div class="submit-area-img" >
-        <img src="images/ra-men_sample.jpg" alt="ラーメンの画像" title="ラーメン" class="submitted_img" />
+        <img id="uploaded-image" class="submitted_img"><br>
       </div>
       <div class="submit-area-compared_things" >
         <ul class='detail-things'>
+          <li class="img-upload-frame"></li>
+            <input type="file" name="img-upload-name" class="img-upload" accept="image/jpeg, image/png" data-image-tag-id="#uploaded-image">
+          </li>
           <li class="compared_thing">
             <input type="range" id="noodle" name="noodle"
          min="0" max="100">

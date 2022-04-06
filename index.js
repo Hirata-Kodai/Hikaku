@@ -1,4 +1,6 @@
 var noodleFrameNum = 0;
+var imgReader;
+var img_tag_id;
 
 document.getElementById("submit-button").onclick = function() {
 
@@ -10,7 +12,7 @@ document.getElementById("submit-button").onclick = function() {
     var appendTag = "<li id='noodle-frame-" +  noodleFrameNum + "'> \
                         <div class='submit-area' > \
                             <div class='submit-area-img' > \
-                                <img src='images/ra-men_sample.jpg' alt='ラーメンの画像' title='ラーメン' class='submitted_img' /> \
+                                <img id='uploaded-image-" +  noodleFrameNum + "' class='submitted_img'><br>\
                             </div>\
                             <div class='submit-area-compared_things' > \
                                 <ul class='detail-things'> \
@@ -35,6 +37,12 @@ document.getElementById("submit-button").onclick = function() {
                     </li>" 
     
     $("#element-list").append(appendTag);
+
+    // 画像ファイル追加
+    var appendImgTagId = img_tag_id + "-" + noodleFrameNum
+    console.log(appendImgTagId);
+    $(appendImgTagId).attr('src', imgReader.result);
+    $(appendImgTagId + '_prev').attr('src', '');
 };
 
 function deleteClick(noodleFrameNum){
@@ -42,3 +50,32 @@ function deleteClick(noodleFrameNum){
     deleteId = "#noodle-frame-" + noodleFrameNum;
     $(deleteId).remove();
 }
+
+// jqueryコード。分けて書くべきなのか分からん！！
+$(function () {
+    $('.img-upload').change(function () {
+        // 画像の情報を取得
+        var file = this.files[0];
+        img_tag_id = $(this).data('imageTagId');
+        console.log(img_tag_id);
+
+        // 指定の拡張子以外の場合はアラート
+        var permit_type = ['image/jpeg', 'image/png', 'image/gif'];
+        if (file && permit_type.indexOf(file.type) == -1) {
+            alert('この形式のファイルはアップロードできません');
+            $(this).val('');
+            $(img_tag_id).attr('src', '');
+            return
+        }
+
+        // 読み込んだ画像を取得し、フォームの直後に表示させる
+        imgReader = new FileReader()
+        imgReader.onload = function () {
+            $(img_tag_id).attr('src', imgReader.result);
+            $(img_tag_id + '_prev').attr('src', '');
+        }
+
+        // 画像の読み込み
+        imgReader.readAsDataURL(file);
+    });
+});

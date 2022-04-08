@@ -18,17 +18,19 @@
           <li class="img-upload-frame"></li>
             <input type="file" name="img-upload-name" class="img-upload" accept="image/jpeg, image/png" data-image-tag-id="#uploaded-image">
           </li>
-          <li class="compared_thing">
-            <input type="range" id="noodle" name="noodle"
-         min="0" max="100">
+          <li class="compared_thing_range">
+            <input type="range" id="noodle" name="noodle" class="range-class"
+         min="0" max="100" value="50">
             <label for="noodle">麺のうまさ</label>
+            <input type="text" id="noodle_num" name="noodle_num" value=50 class="view-range-value-class">
           </li>
-          <li class="compared_thing">
-             <input type="range" id="soup-koku" name="soup-koku"
-         min="0" max="100">
+          <li class="compared_thing_range">
+             <input type="range" id="soup-koku" name="soup-koku" class="range-class"
+         min="0" max="100" value="50">
              <label for="soup-koku">スープのうまさ</label>
+             <input type="text" id="noodle_num" name="noodle_num" value=50 class="view-range-value-class">
           </li>
-          <li class="compared_thing">
+          <li class="compared_thing_text">
             <input type="number" id="price" name="price" min="0" max="10000">
             <label for="price">価格</label>
           </li>

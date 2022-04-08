@@ -1,6 +1,8 @@
 var noodleFrameNum = 0;
 var imgReader;
 var img_tag_id;
+var elem = document.getElementsByClassName('compared_thing_range');
+viewRangeValue(elem);
 
 document.getElementById("submit-button").onclick = function() {
 
@@ -16,17 +18,19 @@ document.getElementById("submit-button").onclick = function() {
                             </div>\
                             <div class='submit-area-compared_things' > \
                                 <ul class='detail-things'> \
-                                    <li class='compared_thing'> \
-                                        <input type='range' id='noodle' name='noodle' \
+                                    <li class='compared_thing_range'> \
+                                        <input type='range' id='noodle' name='noodle' class='range-class'\
                                             min='0' max='100' value='" + noodle + "'> \
-                                        <label for='noodle'>麺のうまさ</li></label> \
+                                        <label for='noodle'>麺のうまさ</label> \
+                                        <input type='text' id='noodle_num' name='noodle_num' value='" + noodle + "' class='view-range-value-class'> \
                                     </li> \
-                                    <li class='compared_thing'> \
-                                        <input type='range' id='soup-koku' name='soup-koku' \
+                                    <li class='compared_thing_range'> \
+                                        <input type='range' id='soup-koku' name='soup-koku' class='range-class'\
                                             min='0' max='100' value='" + soupKoku + "'> \
                                         <label for='soup-koku'>スープのうまさ</label> \
+                                        <input type='text' id='noodle_num' name='noodle_num' value='" + soupKoku + "' class='view-range-value-class'> \
                                     </li> \
-                                    <li class='compared_thing'> \
+                                    <li class='compared_thing_text'> \
                                         <input type='number' id='price' name='price' min='0' max='10000' value='" + price + "'> \
                                         <label for='price'>価格</label> \
                                     </li> \
@@ -43,12 +47,33 @@ document.getElementById("submit-button").onclick = function() {
     console.log(appendImgTagId);
     $(appendImgTagId).attr('src', imgReader.result);
     $(appendImgTagId + '_prev').attr('src', '');
+
+    // rangeタグの数値を可視化できるようにする
+    var elem = document.getElementsByClassName('compared_thing_range');
+    viewRangeValue(elem);
 };
 
 function deleteClick(noodleFrameNum){
     console.log(noodleFrameNum);
     deleteId = "#noodle-frame-" + noodleFrameNum;
     $(deleteId).remove();
+}
+
+function viewRangeValue(elem){
+
+    var rangeValue = function (elem, target) {
+        return function(evt){
+            target.value = elem.value;
+        }
+    }
+
+    for(var i = 0, max = elem.length; i < max; i++){
+        bar = elem[i].getElementsByClassName('range-class')[0];
+        target = elem[i].getElementsByClassName('view-range-value-class')[0];
+        console.log(bar);
+        console.log(target);
+        bar.addEventListener('mousemove', rangeValue(bar, target));
+    }
 }
 
 // jqueryコード。分けて書くべきなのか分からん！！

@@ -1,0 +1,45 @@
+li {
+  list-style: none;
+}
+
+.element-list {
+	padding: 0;
+}
+
+.app-title {
+	text-align: center;
+}
+
+.submit-area {
+	display: flow-root;
+	border: solid;
+	padding: 20px;
+	margin: 20p;
+}
+
+.submitted_img {
+	float: left;
+	height: 100px;
+}
+
+.submit-area-img {
+	float: left;
+}
+
+.submit-area-compared_things {
+	float: left;
+}
+
+.detail-things {
+	margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+.submit-button {
+	text-align: center;
+	width: 100px;
+}
+
+.delete-button {
+	text-align: center;
+	width: 100px;
+}

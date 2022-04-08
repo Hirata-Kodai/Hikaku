@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hikaku（らーめん）</title>
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+  <body>
+    <div class="app-title" >
+      <h1>Hikaku（らーめん）</h1>
+    </div>
+    <div class="submit-area">
+      <div class="submit-area-img" >
+        <img id="uploaded-image" class="submitted_img"><br>
+      </div>
+      <div class="submit-area-compared_things" >
+        <ul class='detail-things'>
+          <li class="img-upload-frame"></li>
+            <input type="file" name="img-upload-name" class="img-upload" accept="image/jpeg, image/png" data-image-tag-id="#uploaded-image">
+          </li>
+          <li class="compared_thing_range">
+            <input type="range" id="noodle" name="noodle" class="range-class"
+         min="0" max="100" value="50">
+            <label for="noodle">麺のうまさ</label>
+            <input type="text" id="noodle_num" name="noodle_num" value=50 class="view-range-value-class">
+          </li>
+          <li class="compared_thing_range">
+             <input type="range" id="soup-koku" name="soup-koku" class="range-class"
+         min="0" max="100" value="50">
+             <label for="soup-koku">スープのうまさ</label>
+             <input type="text" id="noodle_num" name="noodle_num" value=50 class="view-range-value-class">
+          </li>
+          <li class="compared_thing_text">
+            <input type="number" id="price" name="price" min="0" max="10000">
+            <label for="price">価格</label>
+          </li>
+        </ul>
+        <input id="submit-button" class="submit-button" type="button" name="submit" value="登録" />
+      </div>
+    </div>
+    <div class="display-area" >
+      <p>登録した商品</p>
+      <ul id="element-list" class="element-list" >
+      </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="index.js"></script>  
+  </body>
+</html>

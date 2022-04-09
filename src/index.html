@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hikaku（らーめん）</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="../dist/stylesheet.css">
+    <!-- <link rel="stylesheet" href="../dist/output.css"> -->
   </head>
   <body>
-    <div class="app-title" >
+    <div class="app-title">
       <h1>Hikaku（らーめん）</h1>
     </div>
     <div class="submit-area">
@@ -16,7 +17,13 @@
       <div class="submit-area-compared_things" >
         <ul class='detail-things'>
           <li class="img-upload-frame"></li>
-            <input type="file" name="img-upload-name" class="img-upload" accept="image/jpeg, image/png" data-image-tag-id="#uploaded-image">
+            ラーメンの写真：<input type="file" name="img-upload-name" class="img-upload" accept="image/jpeg, image/png" data-image-tag-id="#uploaded-image">
+          </li>
+          <li class="noodle-shop-name-frame"></li>
+            お店の名前：<input type="text" id="noodle_shop_name" name="noodle_shop_name">
+          </li>
+          <li class="noodle-name-frame"></li>
+            ラーメンの名前：<input type="text" id="noodle_name" name="noodle_name">
           </li>
           <li class="compared_thing_range">
             <input type="range" id="noodle" name="noodle" class="range-class"
@@ -30,9 +37,15 @@
              <label for="soup-koku">スープのうまさ</label>
              <input type="text" id="noodle_num" name="noodle_num" value=50 class="view-range-value-class">
           </li>
+          <li class="compared_thing_range">
+            <input type="range" id="ingredients" name="ingredients" class="range-class"
+         min="0" max="100" value="50">
+            <label for="ingredients">具材のうまさ</label>
+            <input type="text" id="ingredients_num" name="ingredients_num" value=50 class="view-range-value-class">
+          </li>
           <li class="compared_thing_text">
-            <input type="number" id="price" name="price" min="0" max="10000">
-            <label for="price">価格</label>
+            価格：<input type="number" id="price" name="price" min="0" max="10000">
+            <label for="price">円</label>
           </li>
         </ul>
         <input id="submit-button" class="submit-button" type="button" name="submit" value="登録" />

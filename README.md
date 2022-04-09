@@ -38,3 +38,8 @@
 -   ちょっとモダンにするなら react, vue？
 -   DB
 
+# tailwindcss setup
+
+<a href="https://tailwindcss.com/docs/installation">ここ</a>に載っている
+
+＊補足資料 : <a href="https://reffect.co.jp/html/tailwindcss-for-beginners">利用者爆増中 初めてでもわかるTailwind CSS入門 基礎編</a>

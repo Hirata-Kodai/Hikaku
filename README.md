@@ -43,3 +43,16 @@
 <a href="https://tailwindcss.com/docs/installation">ここ</a>に載っている
 
 ＊補足資料 : <a href="https://reffect.co.jp/html/tailwindcss-for-beginners">利用者爆増中 初めてでもわかるTailwind CSS入門 基礎編</a>
+
+## tailwindcssのフレームワークを反映させたいとき（フロントエンドをいじりたいとき）
+
+1 . 下記コードをターミナルで叩く
+
+```npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch```
+
+2 . 作業開始。ctrl + s で保存すると、CSSコードが書き加えられている（下記のような記述がターミナルに出力されていればOK！）
+
+```
+Rebuilding...
+Done in 39ms.
+```

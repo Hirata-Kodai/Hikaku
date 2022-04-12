@@ -86,7 +86,7 @@ $(function () {
         // 画像の情報を取得
         var file = this.files[0];
         img_tag_id = $(this).data('imageTagId');
-        
+    
         // 指定の拡張子以外の場合はアラート
         var permit_type = ['image/jpeg', 'image/png', 'image/gif'];
         if (file && permit_type.indexOf(file.type) == -1) {

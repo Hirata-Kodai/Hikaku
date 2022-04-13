@@ -616,6 +616,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(219 234 254 / var(--tw-bg-opacity));
 }
 
+.bg-ramen-photo {
+  background-image: url('../images/background.jpg');
+}
+
 .bg-cover {
   background-size: cover;
 }

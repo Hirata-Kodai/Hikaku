@@ -58,6 +58,13 @@ npx tailwindcss -i ./static/src/style.css -o ./static/css/main.css
 npx tailwindcss -i ./static/src/style.css -o ./static/css/main.css --watch
 ```
 
+（いずれの場合も、下記のような記述がターミナルに出力されていればOK！）
+
+```
+Rebuilding...
+Done in 39ms.
+```
+
 ## イメージ
 
 -   類似商品をを自分なりの項目で比較できるアプリ
@@ -92,4 +99,3 @@ npx tailwindcss -i ./static/src/style.css -o ./static/css/main.css --watch
 
 -   ちょっとモダンにするなら react, vue？
 -   DB
-

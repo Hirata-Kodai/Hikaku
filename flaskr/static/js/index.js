@@ -6,11 +6,13 @@ viewRangeValue(elem);
 
 document.getElementById("submit-button").onclick = function() {
 
+    var noodleShopName = $('#noodle_shop_name').val();
+    var noodleName =  $('#noodle_name').val();
     var noodle = $('#noodle').val();
     var soupKoku =  $('#soup-koku').val();
     var price = $('#price').val();
     noodleFrameNum += 1;
-    console.log(noodle);
+    
     var appendTag = "<li id='noodle-frame-" +  noodleFrameNum + "'> \
                         <div class='submit-area' > \
                             <div class='submit-area-img' > \
@@ -18,6 +20,12 @@ document.getElementById("submit-button").onclick = function() {
                             </div>\
                             <div class='submit-area-compared_things' > \
                                 <ul class='detail-things'> \
+                                    <li class='noodle-shop-name-frame'></li> \
+                                        お店の名前：<input type='text' id='noodle_shop_name' name='noodle_shop_name' value='" + noodleShopName + "'> \
+                                    </li> \
+                                    <li class='noodle-name-frame'></li> \
+                                        ラーメンの名前：<input type='text' id='noodle_name' name='noodle_name' value=' " + noodleName +" '> \
+                                    </li> \
                                     <li class='compared_thing_range'> \
                                         <input type='range' id='noodle' name='noodle' class='range-class'\
                                             min='0' max='100' value='" + noodle + "'> \
@@ -31,8 +39,8 @@ document.getElementById("submit-button").onclick = function() {
                                         <input type='text' id='noodle_num' name='noodle_num' value='" + soupKoku + "' class='view-range-value-class'> \
                                     </li> \
                                     <li class='compared_thing_text'> \
-                                        <input type='number' id='price' name='price' min='0' max='10000' value='" + price + "'> \
-                                        <label for='price'>価格</label> \
+                                        価格：<input type='number' id='price' name='price' min='0' max='10000' value='" + price + "'> \
+                                        <label for='price'>円</label> \
                                     </li> \
                                 </ul> \
                                 <input id='delete-button' class='delete-button-" +  noodleFrameNum + "' type='button' name='submit' value='削除' onclick='deleteClick(" + noodleFrameNum + ")'/> \
@@ -44,7 +52,6 @@ document.getElementById("submit-button").onclick = function() {
 
     // 画像ファイル追加
     var appendImgTagId = img_tag_id + "-" + noodleFrameNum
-    console.log(appendImgTagId);
     $(appendImgTagId).attr('src', imgReader.result);
     $(appendImgTagId + '_prev').attr('src', '');
 
@@ -54,7 +61,6 @@ document.getElementById("submit-button").onclick = function() {
 };
 
 function deleteClick(noodleFrameNum){
-    console.log(noodleFrameNum);
     deleteId = "#noodle-frame-" + noodleFrameNum;
     $(deleteId).remove();
 }
@@ -69,9 +75,7 @@ function viewRangeValue(elem){
 
     for(var i = 0, max = elem.length; i < max; i++){
         bar = elem[i].getElementsByClassName('range-class')[0];
-        target = elem[i].getElementsByClassName('view-range-value-class')[0];
-        console.log(bar);
-        console.log(target);
+        target = elem[i].getElementsByClassName('view-range-value-class')[0];   
         bar.addEventListener('mousemove', rangeValue(bar, target));
     }
 }
@@ -82,8 +86,7 @@ $(function () {
         // 画像の情報を取得
         var file = this.files[0];
         img_tag_id = $(this).data('imageTagId');
-        console.log(img_tag_id);
-
+    
         // 指定の拡張子以外の場合はアラート
         var permit_type = ['image/jpeg', 'image/png', 'image/gif'];
         if (file && permit_type.indexOf(file.type) == -1) {

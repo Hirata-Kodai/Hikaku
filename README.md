@@ -3,6 +3,18 @@
 # Hikaku
 
 
+## Web サーバの起動方法
+
+1.  ライブラリのインストール
+    `pip install -r requirements.txt`
+2.  Flask 用の環境変数の設定
+    
+        export FLASK_APP=flaskr
+        export FLASK_ENV=development
+3.  サーバ起動
+    `flask run`
+
+
 ## イメージ
 
 -   類似商品をを自分なりの項目で比較できるアプリ

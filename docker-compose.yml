@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - "./flaskr/:/Hikaku/flaskr"
+    environment:
+      - "FLASK_APP=flaskr"
+      - "FLASK_ENV=development"
+    tty: true
+    stdin_open: true

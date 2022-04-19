@@ -3,7 +3,15 @@
 # Hikaku
 
 
-## Web サーバの起動方法
+## Web サーバの起動方法(on Docker)
+
+1.  `docker-compose.yml` のあるファイルに移動
+2.  `docker-compose up` でイメージのビルド，コンテナの立ち上げ．デフォルトで Flask サーバが起動する．
+    -   Ctrl + C で終了
+    -   `docker-compose down` でコンテナ削除
+
+
+## Web サーバの起動方法(on Local)
 
 1.  ライブラリのインストール
     `pip install -r requirements.txt`

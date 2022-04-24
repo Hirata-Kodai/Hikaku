@@ -3,17 +3,75 @@
 # Hikaku
 
 
-## Web サーバの起動方法
+## Web サーバの起動方法(on Docker)
+
+1.  `docker-compose.yml` のあるディレクトリに移動
+2.  `docker-compose up` でイメージのビルド，コンテナの立ち上げ．デフォルトで Flask サーバが起動する．
+    -   Ctrl + C で終了
+    -   `docker-compose down` でコンテナ削除
+
+
+## Web サーバの起動方法(on Local)
 
 1.  ライブラリのインストール
+
     `pip install -r requirements.txt`
+
 2.  Flask 用の環境変数の設定
+
+    Mac（Linux）の場合
     
-        export FLASK_APP=flaskr
-        export FLASK_ENV=development
+    ```
+    export FLASK_APP=flaskr
+    export FLASK_ENV=development
+    ```
+
+    Windowsの場合
+   
+    ```
+    set FLASK_APP=flaskr
+    set FLASK_ENV=development
+    ```
+
 3.  サーバ起動
+
     `flask run`
 
+## tailwindCSSについて（初回）
+
+```
+npm install -D tailwindcss
+```    
+
+## tailwindCSSについて（作業するとき）
+
+-   tailwindCSSに触れる際、毎回ビルドする必要がある
+    -   htmlファイルにtailwindCSSに関するコードを記述すると、CSSファイル(今回は、static/style/css/main.css)に加える処理を勝手にやってくれる
+
+上記の処理を行う方法は以下の通り
+
+1 .ディレクトリを移動（`tailwind.config.js`が含まれているディレクトリに移動）
+
+```cd flaskr```
+
+2 . 下記コードを実行
+
+```
+npx tailwindcss -i ./static/src/style.css -o ./static/css/main.css
+```
+
+*下のコマンドを実行すると、`ctrl + s` をするたびにtailwindCSSに対応するコードが書き加わる。
+
+```
+npx tailwindcss -i ./static/src/style.css -o ./static/css/main.css --watch
+```
+
+（いずれの場合も、下記のような記述がターミナルに出力されていればOK！）
+
+```
+Rebuilding...
+Done in 39ms.
+```
 
 ## イメージ
 
@@ -49,4 +107,3 @@
 
 -   ちょっとモダンにするなら react, vue？
 -   DB
-

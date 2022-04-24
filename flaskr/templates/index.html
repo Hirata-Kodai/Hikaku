@@ -3,47 +3,151 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hikaku（らーめん）</title>
-    <link rel="stylesheet" href="static/stylesheet.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/stylesheet.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
   </head>
   <body>
-    <div class="app-title" >
-      <h1>Hikaku（らーめん）</h1>
-    </div>
-    <div class="submit-area">
-      <div class="submit-area-img" >
-        <img id="uploaded-image" class="submitted_img"><br>
+    <div class="bg-cover bg-ramen-photo min-h-screen bg-center">
+      <div class="backdrop-opacity-10 backdrop-invert bg-white/30 min-h-screen">
+        <div class="app-title">
+          <h1 class="py-3 block xl:inline text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+            Hikaku（らーめん）
+          </h1>
+        </div>
+        <div class="submit-area mx-8 my-6 flex font-sans rounded-md bg-white relative">
+          <div class="flex-none w-64 relative">
+            <div class="h-3/5">
+              <img id="uploaded-image" src="static/images/no-photo.png" class="p-6 inset-0 w-full h-full object-cover"><br>
+            </div>
+            <div class="h-1/5 text-center">
+              <div class="mt-4">
+                <label class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                  写真を登録
+                  <input class="hidden img-upload" type="file" name="img-upload-name" accept="image/jpeg, image/png" data-image-tag-id="#uploaded-image"/>
+                </label> 
+              </div>
+            </div>
+            <div class="h-1/5 text-center">
+              <input id="submit-button" class="submit-button bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" type="button" name="submit" value="登録" />
+            </div>
+          </div>
+          <div class="submit-area-compared_things flex-auto p-2" >
+            <ul class='detail-things'>
+              <li class="noodle-shop-name-frame"></li>
+                <div class="flex my-3">
+                  <div class="w-1/3 mt-1 px-3 py-2">
+                    お店の名前：
+                  </div>
+                  <div class="w-2/3">
+                    <input type="text" id="noodle_shop_name" name="noodle_shop_name" class="w-2/3 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1">
+                  </div>
+                </div>
+              </li>
+              <li class="noodle-name-frame"></li>
+                <div class="flex my-3">
+                  <div class="w-1/3 mt-1 px-3 py-2">
+                    ラーメンの名前：
+                  </div>
+                  <div class="w-2/3">
+                    <input type="text" id="noodle_name" name="noodle_name" class="w-2/3 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1">
+                  </div>
+                </div>
+              </li>
+              <li class="compared_thing_range">
+                <div class="flex my-3">
+                  <div class="w-2/5 mt-1 px-3 flex">
+                    <div class="w-3/5">
+                      <label for="noodle">麺のうまさ</label>
+                    </div>
+                    <div class="w-2/5">
+                      <input type="text" id="noodle_num" name="noodle_num" value=50 class="w-4/5 view-range-value-class">
+                    </div>
+                  </div>
+                  <div class="w-3/5 mt-1 px-3">
+                    <div class="h-2/3">
+                      <input type="range" id="noodle" name="noodle" class="range-class w-4/5 h-2 bg-blue-100 appearance-none"
+              min="0" max="100" value="50">
+                    </div>
+                    <div lass="h-1/3">
+                      <div class="flex w-4/5 justify-between">
+                        <span>0</span><span>100</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="compared_thing_range">
+                <div class="flex my-3">
+                  <div class="w-2/5 mt-1 px-3 flex">
+                    <div class="w-3/5">
+                      <label for="soup-koku">スープのうまさ</label>
+                    </div>
+                    <div class="w-2/5">
+                      <input type="text" id="noodle_num" name="noodle_num" value=50 class="w-4/5 view-range-value-class">
+                    </div>
+                  </div>
+                  <div class="w-3/5 mt-1 px-3">
+                    <div class="h-2/3">
+                      <input type="range" id="soup-koku" name="soup-koku" class="range-class w-4/5 h-2 bg-blue-100 appearance-none"
+                  min="0" max="100" value="50">
+                    </div>
+                    <div lass="h-1/3">
+                      <div class="flex w-4/5 justify-between">
+                        <span>0</span><span>100</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="compared_thing_range">
+                <div class="flex my-3">
+                  <div class="w-2/5 mt-1 px-3 flex">
+                    <div class="w-3/5">
+                      <label for="ingredients">具材のうまさ</label>
+                    </div>
+                    <div class="w-2/5">
+                      <input type="text" id="ingredients_num" name="ingredients_num" value=50 class="w-4/5 view-range-value-class">
+                    </div>
+                  </div>
+                  <div class="w-3/5 mt-1 px-3">
+                    <div class="h-2/3">
+                      <input type="range" id="ingredients" name="ingredients" class="range-class w-4/5 h-2 bg-blue-100 appearance-none"
+            min="0" max="100" value="50">
+                    </div>
+                    <div lass="h-1/3">
+                      <div class="flex w-4/5 justify-between">
+                        <span>0</span><span>100</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="compared_thing_text">
+                <div class="flex my-3">
+                  <div class="w-1/3 mt-1 px-3 py-2">
+                    価格：
+                  </div>
+                  <div class="w-1/3">
+                    <input type="number" id="price" name="price" min="0" max="10000" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1">
+                  </div>
+                  <div class="w-1/3 mt-1 px-3 py-2">
+                    <label for="price">円</label>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="display-area">
+          <h2 class="py-3 block xl:inline text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-5xl">
+            登録した商品
+          </h2>
+          <ul id="element-list" class="element-list" >
+          </ul>
+        </div>
       </div>
-      <div class="submit-area-compared_things" >
-        <ul class='detail-things'>
-          <li class="img-upload-frame"></li>
-            <input type="file" name="img-upload-name" class="img-upload" accept="image/jpeg, image/png" data-image-tag-id="#uploaded-image">
-          </li>
-          <li class="compared_thing_range">
-            <input type="range" id="noodle" name="noodle" class="range-class"
-         min="0" max="100" value="50">
-            <label for="noodle">麺のうまさ</label>
-            <input type="text" id="noodle_num" name="noodle_num" value=50 class="view-range-value-class">
-          </li>
-          <li class="compared_thing_range">
-             <input type="range" id="soup-koku" name="soup-koku" class="range-class"
-         min="0" max="100" value="50">
-             <label for="soup-koku">スープのうまさ</label>
-             <input type="text" id="noodle_num" name="noodle_num" value=50 class="view-range-value-class">
-          </li>
-          <li class="compared_thing_text">
-            <input type="number" id="price" name="price" min="0" max="10000">
-            <label for="price">価格</label>
-          </li>
-        </ul>
-        <input id="submit-button" class="submit-button" type="button" name="submit" value="登録" />
-      </div>
-    </div>
-    <div class="display-area" >
-      <p>登録した商品</p>
-      <ul id="element-list" class="element-list" >
-      </ul>
     </div>
     <script src="https://code.jquery.com/jquery.min.js"></script>
-    <script src="static/index.js"></script>  
+    <script src="{{url_for('static',filename='js/index.js')}}"></script>  
   </body>
 </html>

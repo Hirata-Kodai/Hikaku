@@ -13,14 +13,14 @@ li {
 .submit-area {
 	display: flow-root;
 	border: solid;
-	padding: 20px;
-	margin: 20p;
+	/* padding: 20px;
+	margin: 20p; */
 }
 
-.submitted_img {
+/* .submitted_img {
 	float: left;
 	height: 100px;
-}
+} */
 
 .submit-area-img {
 	float: left;
